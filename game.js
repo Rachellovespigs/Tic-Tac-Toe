@@ -14,7 +14,7 @@ let gameActive = true;
 /*
 We will store our current player here, so we know whos turn 
 */
-let currentPlayer = "X";
+let currentPlayer = "O";
 /*
 We will store our current game state here, the form of empty strings in an array
  will allow us to easily track played cells and validate the game state later on
@@ -33,11 +33,30 @@ const currentPlayerTurn = () => `It's ${currentPlayer}'s turn`;
 We set the inital message to let the players know whose turn it is
 */
 // statusDisplay.innerHTML = currentPlayerTurn();
-function handleCellPlayed() {}
+function handleCellPlayed(clickedCell, index) {
+  console.log(`put a mark in ${index}`);
+  gameState[index] = "O";
+  clickedCell.innerHTML = "O";
+  console.log(gameState);
+}
+
 function handlePlayerChange() {}
+
 function handleResultValidation() {}
-function handleCellClick() {
+
+function handleCellClick(event) {
   console.log("click");
+  const clickedCell = event.target;
+  const clickedCellIndex = parseInt(
+    clickedCell.getAttribute("data-cell-index")
+  );
+  console.log(clickedCellIndex);
+
+  if (gameState[(clickedCell, clickedCellIndex)] == "") {
+    handleCellPlayed(clickedCell, clickedCellIndex);
+  } else {
+    console.log("do nothing");
+  }
 }
 function handleRestartGame() {
   console.log("Game restart");
