@@ -100,6 +100,7 @@ function handleRestartGame() {
   gameState = ["", "", "", "", "", "", "", "", ""];
   console.log(gameState);
   document.querySelectorAll(".cell").forEach((cell) => (cell.innerHTML = ""));
+  document.querySelector(".Winner").innerHTML = " ";
 }
 /*
 And finally we add our event listeners to the actual game cells, as well as our 
