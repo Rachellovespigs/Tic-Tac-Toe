@@ -15,6 +15,17 @@ let gameActive = true;
 We will store our current player here, so we know whos turn 
 */
 let currentPlayer = "X";
+
+const winningConditions = [
+  [0, 1, 2],
+  [3, 4, 5],
+  [6, 7, 8],
+  [0, 3, 6],
+  [1, 4, 7],
+  [2, 5, 8],
+  [0, 4, 8],
+  [2, 4, 6],
+];
 /*
 We will store our current game state here, the form of empty strings in an array
  will allow us to easily track played cells and validate the game state later on
@@ -48,7 +59,25 @@ function handleCellPlayed(clickedCell, index) {
 
 function handlePlayerChange() {}
 
-function handleResultValidation() {}
+function checkWhoWins() {
+  for (i = 0; i <= 7; i++) {
+    const indexA = winningConditions[i][0];
+    const indexB = winningConditions[i][1];
+    const indexC = winningConditions[i][2];
+
+    let a = gameState[indexA];
+    let b = gameState[indexB];
+    let c = gameState[indexC];
+    console.log(`a is ${a}`);
+    console.log(`b is ${b}`);
+    console.log(`c is ${c}`);
+    console.log(`currentPlayer is ${currentPlayer}`);
+    if (a == currentPlayer && b == currentPlayer && c == currentPlayer) {
+      console.log("Ta-da");
+      console.log(`${currentPlayer} is the winner`);
+    }
+  }
+}
 
 function handleCellClick(event) {
   console.log("click");
@@ -60,6 +89,7 @@ function handleCellClick(event) {
 
   if (gameState[(clickedCell, clickedCellIndex)] == "") {
     handleCellPlayed(clickedCell, clickedCellIndex);
+    checkWhoWins();
   } else {
     console.log("do nothing");
   }
