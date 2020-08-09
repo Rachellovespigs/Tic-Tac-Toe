@@ -76,7 +76,7 @@ function checkWhoWins() {
       console.log("Ta-da");
       console.log(`${currentPlayer} is the winner`);
       document.querySelector(".Winner").innerHTML =
-        "The currentPlayer has won!";
+        "The Current Player has won!";
     }
   }
 }
