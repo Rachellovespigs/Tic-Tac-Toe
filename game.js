@@ -75,6 +75,7 @@ function checkWhoWins() {
     if (a == currentPlayer && b == currentPlayer && c == currentPlayer) {
       console.log("Ta-da");
       console.log(`${currentPlayer} is the winner`);
+      document.querySelectorAll(".Winner").innerHTML = "WEEEE";
     }
   }
 }
