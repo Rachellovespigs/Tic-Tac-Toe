@@ -37,3 +37,12 @@ button {
   font-size: 24px;
   font-family: cursive;
 }
+
+.Winner {
+  color: white;
+  margin-left: 527px;
+  font-size: 29px;
+  padding-top: 16px;
+  margin-top: 16px;
+  font-family: monospace;
+}
